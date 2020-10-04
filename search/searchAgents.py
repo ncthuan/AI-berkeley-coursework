@@ -385,13 +385,10 @@ def cornersHeuristic(state, problem):
 
     "*** YOUR CODE HERE ***"
 
-    if problem.isGoalState(state):
-        return 0
-
-    distances = []
+    distances = [0]
+    # calculate manhattan distance from pacman to 4 corners
     for id, corner in enumerate(state[1]):
         if corner == 0: # not visited corner
-            # use manhattan distance
             distances.append(util.manhattanDistance(state[0], corners[id]))
     
     return max(distances)
@@ -490,6 +487,16 @@ def foodHeuristic(state, problem):
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
 
+    # find the food with max manhattan distance
+    max_distance = 0
+    far_most_food = position
+    for food in foodGrid.asList():
+        distance = util.manhattanDistance(position, food)
+        if distance > max_distance:
+            far_most_food = food
+
+    # using mazeDistance
+    return mazeDistance(position, far_most_food, problem.startingGameState)
     
     
 
@@ -523,7 +530,8 @@ class ClosestDotSearchAgent(SearchAgent):
 
         "*** YOUR CODE HERE ***"
         #util.raiseNotDefined()
-        #return search.breadthFirstSearch(problem)
+        return search.breadthFirstSearch(problem)
+
 
 class AnyFoodSearchProblem(PositionSearchProblem):
     """
@@ -561,6 +569,8 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         "*** YOUR CODE HERE ***"
         #util.raiseNotDefined()
 
+        food_list = self.food.asList()        
+        return True if state in food_list else False
         
 
 
