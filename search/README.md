@@ -22,6 +22,7 @@ Similar to corner heuristic, my food heuristic first find the far most food usin
 Further improvement can be done by designing a better heuristic.
 
 ### Q8 Suboptimal search
+basically just use BFS in findPathToClosestDot
 
 Overall result:
 Question q1: 3/3
