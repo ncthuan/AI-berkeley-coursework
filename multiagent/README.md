@@ -4,10 +4,11 @@ I consider a number of features of the next state: number of food eaten, distanc
 Then I specify reasonable weights for each of those features.<br>
 And that's pretty much it, the evaluation score is calculated by a sum of weighted features.
 
-### Q2 Minimax, Alpha-Beta pruning, Expectimax
-* Programmed according to the pseudocode
-* Handle multi MIN agents:
-
+### Q2,3,4 Minimax, Alpha-Beta pruning, Expectimax
+I programmed according to the pseudocode.
+A critical thing is to handle multi MIN agents:<br>
+So to deal with this, we need to check whether the current min agent is the last one or not.<br>
+If it's not, we continue to the next min agent, and if it is, the max agent should take turn.
 
 ### Q5 Better evaluation function
 **Reuse:** 
