@@ -1,0 +1,1 @@
+some courseworks on my AI class at school
