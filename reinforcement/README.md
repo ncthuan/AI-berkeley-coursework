@@ -1,3 +1,17 @@
+http://ai.berkeley.edu/reinforcement.html
+
+## Overall result:
+Question q1: 6/6<br>
+Question q2: 1/1<br>
+Question q3: 5/5<br>
+Question q4: 5/5<br>
+Question q5: 4/3<br>
+Question q6: 1/1<br>
+Question q7: 1/1<br>
+Question q8: 3/3<br>
+------------------
+Total: 25/25
+
 ## Q1 Value Iteration
 * function: **__init_** takes a MDP on initialization and runs basic value iteration
 * function: **computeQValueFromValues(state, action)** returns the Q-value of the (state, action) pair given by the value function given by self.values
@@ -25,7 +39,7 @@ the update function:
 ```py
 def update(self, state, action, nextState, reward):
 	sample = reward + self.discount * self.computeValueFromQValues(nextState)
-    self.q_values[(state, action)] = (1.0 - self.alpha) * self.getQValue(state, action) + self.alpha * sample
+	self.q_values[(state, action)] = (1.0 - self.alpha) * self.getQValue(state, action) + self.alpha * sample
 ```
 <img src="https://latex.codecogs.com/gif.latex?sample=R(s,a,s')+\gamma\max\limits_{a'}Q(s',a')"/> <br>
 <img src="https://latex.codecogs.com/gif.latex?Q(s,a)=(1-\alpha)Q(s,a)+\alpha[sample]"/> <br>
@@ -42,7 +56,7 @@ else:
 
 
 ## Q6 Bridge Crossing Revisited
-It's impossible. The agent was only wandering around and not heading to the goal. Eventhough the epsilon is set from 1 down to 0, which means the agent is learning with selecting the best action, the right policy is still not learned after 50 iterations.
+The answer is 'impossible'. The agent was only wandering around and not heading to the goal. Eventhough the epsilon is set from 1 down to 0, which means the agent is learning with selecting the best action, the right policy is still not learned after 50 iterations.
 
 ## Q7 Q-Learning and Pacman
 No further coding required
@@ -60,16 +74,3 @@ def getQValue(self, state, action):
 <img src="https://latex.codecogs.com/gif.latex?Q(s,a)=\sum\limits_{i=1}^n%20f_i(s,a)%20w_i"/><br>
 In this getQValue function, I can just multiply the weights directly because Counter() mul operation results in a sum of multiplications of key-matched values from the two Counters.<br>
 In the update function, I implemented with the given formula as usual.
-
-
-## Overall result:
-Question q1: 6/6<br>
-Question q2: 1/1<br>
-Question q3: 5/5<br>
-Question q4: 5/5<br>
-Question q5: 4/3<br>
-Question q6: 1/1<br>
-Question q7: 1/1<br>
-Question q8: 3/3<br>
-------------------
-Total: 25/25
